@@ -1,0 +1,24 @@
+<h1>Novo contato</h1>
+
+<%= form_for @contact do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :age %>
+  <%= f.text_field :age %>
+
+  <%= f.label :state %>
+  <%= f.text_field :state %>
+
+  <%= f.label :role %>
+  <%= f.text_field :role %>
+
+  <%= f.submit "Criar contato", class: "btn btn-primary" %>
+<% end %>
+
+
+
+
