@@ -9,11 +9,13 @@ class ContactsController < ApplicationController
     if @contact.save
       redirect_to contacts_path
     else
-      render 'new'  
+      @states = State.all
+      render 'new'
     end
   end
 
-  def edit
+  def index
+    @contacts = Contact.all
   end
   
   private
