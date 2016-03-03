@@ -1,3 +1,14 @@
-<h1><%= t :contact_filter %></h1>
+<h4><%= t :contact_filter %></h4>
 
-<%= render @contacts %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t :name, scope: [:activerecord, :attributes, :contact ]%></th>
+      <th><%= t :email, scope: [:activerecord, :attributes, :contact ] %></th>
+      <th><%= t :age, scope: [:activerecord, :attributes, :contact ] %></th>
+      <th><%= t :state, scope: [:activerecord, :attributes, :contact ] %></th>
+      <th><%= t :role, scope: [:activerecord, :attributes, :contact ] %></th>
+    </tr>
+  </thead>
+  <%= render @contacts %>
+</table>

@@ -1,30 +1,48 @@
-<h1><%= t :new_contact %></h1>
+<div class="row">
+  <div class="col-xs-12 col-sm-10">
+  <div class="panel panel-default">
+    <div class="panel-heading"><h4><%= t :new_contact %></h4></div>
+  <div class="panel-body">
+  <%= form_for @contact do |f| %>
+    <%= render 'shared/error_messages' %>
 
-<%= form_for @contact do |f| %>
-  <%= render 'shared/error_messages' %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: 'form-control' %>
+    </div>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+    <div class="form-group">
+      <%= f.label :age %>
+      <%= f.text_field :age, class: 'form-control' %>
+    </div>
 
-  <%= f.label :age %>
-  <%= f.text_field :age %>
+    <div class="form-group">
+      <%= f.label :state %>
+      <%= f.select :state, {},{} , class: 'form-control' do %>
+        <% @states.each do |c| %>
+         <%= content_tag(:option, c.state, value: c.state_id) %>
+        <% end %>
+      <% end %>
+    </div>
 
-  <%= f.label :state %>
-  <%= f.select(:state) do %>
-    <% @states.each do |c| %>
-     <%= content_tag(:option, c.state, value: c.state_id) %>
-    <% end %>
+    <div class="form-group">
+      <%= f.label :role %>
+      <%= f.text_field :role, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit t(:create_contact), class: "btn btn-primary" %>
+    </div>
   <% end %>
-
-  <%= f.label :role %>
-  <%= f.text_field :role %>
-
-  <%= f.submit t(:create_contact), class: "btn btn-primary" %>
-<% end %>
-
+  </div>
+  </div>
+  </div>
+</div>
 
 
 
