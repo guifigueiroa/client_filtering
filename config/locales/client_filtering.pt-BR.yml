@@ -1,0 +1,15 @@
+pt-BR:
+  contact: "Contato"
+  contact_filter: "Filtro de contatos"
+  create_contact: "Criar contato"
+  new_contact: "Novo contato"
+  activerecord:
+    models:
+      contact: "Contato"
+    attributes:
+      contact:
+        name: "Nome"
+        email: "Email"
+        age: "Idade"
+        state: "Estado"
+        role: "Cargo"

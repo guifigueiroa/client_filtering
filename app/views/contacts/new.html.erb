@@ -1,4 +1,4 @@
-<h1>Novo contato</h1>
+<h1><%= t :new_contact %></h1>
 
 <%= form_for @contact do |f| %>
   <%= render 'shared/error_messages' %>
@@ -22,7 +22,7 @@
   <%= f.label :role %>
   <%= f.text_field :role %>
 
-  <%= f.submit "Criar contato", class: "btn btn-primary" %>
+  <%= f.submit t(:create_contact), class: "btn btn-primary" %>
 <% end %>
 
 
