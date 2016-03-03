@@ -1,14 +1,18 @@
 require 'test_helper'
 
 class ContactsControllerTest < ActionController::TestCase
+  def setup
+    @contact       = contacts(:one)
+    @other_contact = contacts(:two)
+  end
+  
   test "should get new" do
     get :new
     assert_response :success
   end
-
-  test "should get edit" do
-    get :edit
-    assert_response :success
+  
+  test "should save valid contact" do
+    assert_equal true, @contact.save
   end
 
 end

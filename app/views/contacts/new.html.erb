@@ -1,6 +1,8 @@
 <h1>Novo contato</h1>
 
 <%= form_for @contact do |f| %>
+  <%= render 'shared/error_messages' %>
+
   <%= f.label :name %>
   <%= f.text_field :name %>
 
@@ -11,7 +13,11 @@
   <%= f.text_field :age %>
 
   <%= f.label :state %>
-  <%= f.text_field :state %>
+  <%= f.select(:state) do %>
+    <% @states.each do |c| %>
+     <%= content_tag(:option, c.state, value: c.state_id) %>
+    <% end %>
+  <% end %>
 
   <%= f.label :role %>
   <%= f.text_field :role %>

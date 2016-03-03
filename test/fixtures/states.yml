@@ -1,0 +1,109 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  state_id: AC
+  state: Acre
+
+two:
+  state_id: AL
+  state: Alagoas
+
+three:
+  state_id: AP
+  state: Amapá
+
+four:
+  state_id: AM
+  state: Amazonas
+
+five:
+  state_id: BA
+  state: Bahia
+  
+six:
+  state_id: CE
+  state: Ceará
+
+seven:
+  state_id: DF
+  state: Distrito Federal
+
+eight:
+  state_id: ES
+  state: Espírito Santo
+  
+nine:
+  state_id: GO
+  state: Goiás
+ 
+ten:
+  state_id: MA
+  state: Maranhão
+  
+eleven:
+  state_id: MT
+  state: Mato Grosso
+  
+twelve:
+  state_id: MS
+  state: Mato Grosso do Sul
+  
+thirteen:
+  state_id: MG
+  state: Minas Gerais
+  
+fourteen:
+  state_id: PA
+  state: Pará
+  
+fifteen:
+  state_id: PB
+  state: Paraíba
+  
+sixteen:
+  state_id: PR
+  state: Paraná
+  
+seventeen:
+  state_id: PE
+  state: Pernambuco
+  
+eighteen:
+  state_id: PI
+  state: Piauí
+  
+nineteen:
+  state_id: RJ
+  state: Rio de Janeiro
+  
+twenty-one:
+  state_id: RN
+  state: Rio Grande do Norte
+  
+twenty-two:
+  state_id: RS
+  state: Rio Grande do Sul
+  
+twenty-three:
+  state_id: RO
+  state: Rondônia
+  
+twenty-four:
+  state_id: RR
+  state: Roraima
+  
+twenty:
+  state_id: SC
+  state: Santa Catarina
+  
+twenty-five:
+  state_id: SP
+  state: São Paulo
+  
+twenty-six:
+  state_id: SE
+  state: Sergipe
+  
+twenty-seven:
+  state_id: TO
+  state: Tocantins
