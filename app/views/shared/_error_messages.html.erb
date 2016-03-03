@@ -1,7 +1,8 @@
 <% if @contact.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
-      O formulário contém <%= pluralize(@contact.errors.count, "erro") %>.
+      
+      <%= t :validation, scope: [ :activerecord, :errors], count: @contact.errors.count %>
     </div>
     <ul>
     <% @contact.errors.full_messages.each do |msg| %>

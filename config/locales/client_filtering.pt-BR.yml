@@ -2,10 +2,22 @@ pt-BR:
   contact: "Contato"
   contact_filter: "Filtro de contatos"
   create_contact: "Criar contato"
+  create_filter: "Criar filtro"
   new_contact: "Novo contato"
+  new_filter: "Novo filtro"
+  age_range: "Faixa de idade"
+  from: "De"
+  to: "Até"
+  apply: "Aplicar"
+  contact_created: "Contato criado com sucesso!"
+  close: "Fechar"
   activerecord:
     models:
-      contact: "Contato"
+      contact: "Contato"      
+    errors:
+      validation: 
+        one: "O formulário contém %{count} erro."
+        other: "O formulário contém %{count} erros."
     attributes:
       contact:
         name: "Nome"

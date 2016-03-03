@@ -1,0 +1,26 @@
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <%= t :age, scope: [ :activerecord, :attributes, :contact] %>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <%= t :age_range %>
+        <form>
+          <div class="form-group">
+            <label for="from"><%= t :from %></label>
+            <input type="number" min="0" max="115" class="form-control" id="from">
+          </div>
+          <div class="form-group">
+            <label for="to"><%= t :to %></label>
+            <input type="number" min="0" max="115" class="form-control" id="to">
+          </div>
+          <button type="submit" class="btn btn-default"><%= t :apply %></button>
+        </form>
+        
+      </div>
+    </div>
+  </div>

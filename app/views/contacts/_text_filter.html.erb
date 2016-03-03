@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo<%=name%>" aria-expanded="false" aria-controls="collapseTwo">
+          <%= name %>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo<%=name%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <div id="selected"></div>
+        <%=select_tag "list#{name}", options_from_collection_for_select(list, field, field), class: 'form-control', remote: true %>
+
+      </div>
+    </div>
+  </div>

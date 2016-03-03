@@ -7,6 +7,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
+      flash[:success] = t :contact_created
       redirect_to contacts_path
     else
       @states = State.all
@@ -16,6 +17,7 @@ class ContactsController < ApplicationController
 
   def index
     @contacts = Contact.all
+    @states = State.all
   end
   
   private

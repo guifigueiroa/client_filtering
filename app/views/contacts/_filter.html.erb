@@ -1,0 +1,12 @@
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  
+  <%= render 'contacts/number_filter' %>
+  
+  <%= render partial: 'contacts/text_filter', locals: { list: @states,
+                                                        field: 'state',
+                                                        name: t(:state, scope: [ :activerecord, :attributes, :contact]) } %>
+  
+  <%= render partial: 'contacts/text_filter', locals: { list: @states,
+                                                        field: 'state',
+                                                        name: t(:role, scope: [ :activerecord, :attributes, :contact]) } %>
+</div>

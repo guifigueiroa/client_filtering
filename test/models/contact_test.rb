@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ContactTest < ActiveSupport::TestCase
- def setup
+  def setup
     @contact       = contacts(:one)
     @other_contact = contacts(:two)
   end
