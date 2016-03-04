@@ -9,6 +9,7 @@ pt-BR:
   from: "De"
   to: "Até"
   apply: "Aplicar"
+  save_filter: "Salvar filtro"
   contact_created: "Contato criado com sucesso!"
   close: "Fechar"
   activerecord:
