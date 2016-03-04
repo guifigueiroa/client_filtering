@@ -28,6 +28,7 @@ class ContactsController < ApplicationController
       @contacts = Contact.all.order(:name)
     end
     
+    @filter = Filter.new
     @states = State.all
     @roles = Contact.select(:role).uniq.order(:role)
     @filters = Filter.select(:id, :filter_name).order(:filter_name)

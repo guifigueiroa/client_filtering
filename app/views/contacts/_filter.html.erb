@@ -1,5 +1,3 @@
-
-
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
@@ -13,38 +11,38 @@
       <div class="panel-body">
 
         
-        <%= form_tag contacts_path, method: 'get' do %>
+        <%= form_for @filter do |f| %>
           <h3><%= t :age_range %></h3>
-          <%= label_tag :from, t(:from) %>
-          <%= text_field_tag("filter[age_from]", {} ,type: :number, min: 0, max: 114, class: "form-control") %><br />
-          <%= label_tag :to, t(:to) %>
-          <%= text_field_tag("filter[age_to]", {} ,type: :number, min: 1, max: 115, class: "form-control") %>
+          <%= f.label :from, t(:from) %>
+          <%= f.text_field :age_from, value: (params[:filter].nil? ? "" : params[:filter][:age_from]), type: :number, min: 0, max: 114, class: "form-control" %><br />
+          <%= f.label :to, t(:to) %>
+          <%= f.text_field :age_to, value: (params[:filter].nil? ? "" : params[:filter][:age_to]), type: :number, min: 1, max: 115, class: "form-control" %>
           
           <h3><%= t :state, scope: [:activerecord, :attributes, :contact ] %></h3>
           <div class="btn-group" data-toggle="buttons">
-            <%= label_tag(:and_label, "E", class: 'btn btn-primary') do %>
-            <%= radio_button_tag("filter[op_state]", "AND") %>E
+            <%= f.label :and_label, "E", class: 'btn btn-primary' + (!params[:filter].nil? && params[:filter][:op_state] == "AND" ? ' active' : '') do %>
+              <%= f.radio_button :op_state, "AND" %>E
             <% end %>
-            <%= label_tag(:or_lable, "OU", class: 'btn btn-primary') do %>
-            <%= radio_button_tag("filter[op_state]", "OR") %>OU
+            <%= f.label :or_lable, "OU", class: 'btn btn-primary' + (!params[:filter].nil? && params[:filter][:op_state] == "OR" ? ' active' : '') do %>
+              <%= f.radio_button :op_state, "OR" %>OU
             <% end %>
           </div><br /><br />
-          <%=select_tag "filter[state]", content_tag(:option,"")+options_from_collection_for_select(@states, "state_id", "state"), class: 'form-control' %>
-        
+          <%= f.select :state, content_tag(:option,"")+options_from_collection_for_select(@states, "state_id", "state", (params[:filter].nil? ? "" : params[:filter][:state])), {}, { class: 'form-control' } %>
+          
           <h3><%= t :role, scope: [:activerecord, :attributes, :contact ] %></h3>
           <div class="btn-group" data-toggle="buttons">
-            <%= label_tag(:and_label, "E", class: 'btn btn-primary') do %>
-            <%= radio_button_tag("filter[op_role]", "AND") %>E
+            <%= f.label :and_label, "E", class: 'btn btn-primary' + (!params[:filter].nil? && params[:filter][:op_role] == "AND" ? ' active' : '') do %>
+              <%= f.radio_button :op_role, "AND", checked: true %>E
             <% end %>
-            <%= label_tag(:or_lable, "OU", class: 'btn btn-primary') do %>
-            <%= radio_button_tag("filter[op_role]", "OR") %>OU
+            <%= f.label :or_lable, "OU", class: 'btn btn-primary' + (!params[:filter].nil? && params[:filter][:op_role] == "OR" ? ' active' : '') do %>
+              <%= f.radio_button :op_role, "OR" %>OU
             <% end %>
           </div><br /><br />
-          <%=select_tag "filter[role]", content_tag(:option,"")+options_from_collection_for_select(@roles, "role", "role"), class: 'form-control' %><br />
+          <%= f.select :role, content_tag(:option,"")+options_from_collection_for_select(@roles, "role", "role", (params[:filter].nil? ? "" : params[:filter][:role])), {}, { class: 'form-control' } %><br />
         
-          <%= submit_tag t(:apply), class: "btn btn-default" %>
+          <%= f.submit t(:apply), class: "btn btn-default" %>
           
-          <%= render partial: 'contacts/save_filter_modal' %>
+          <%= render partial: 'contacts/save_filter_modal', locals: { f: f } %>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
             <%= t :save_filter %>
           </button>

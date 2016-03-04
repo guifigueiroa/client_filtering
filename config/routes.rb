@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root  'contacts#new'
   resources :contacts, except: [:show]
-  resources :filters, only: [:new]
+  resources :filters, only: [:new, :index]
+  
+  post 'filters' => 'filters#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

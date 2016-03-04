@@ -22,6 +22,10 @@ class Contact < ActiveRecord::Base
   
   def self.search_by_filter(filter)
     @filter = Filter.find(filter)
+    @filter.age_from ||= 0
+    @filter.age_to ||= 115
+    @filter.op_state ||= "AND"
+    @filter.op_role ||= "AND"
     search_params(@filter.age_from, @filter.age_to, @filter.op_state, @filter.state, @filter.op_role, @filter.role)
   end
 
@@ -36,7 +40,7 @@ class Contact < ActiveRecord::Base
     elsif role.empty?
       Contact.where("#{age_filter} #{op_state} state = '#{state}'")
     else
-      Contact.where("#{age_filter} #{op_state} state = :state #{op_role} role = '#{role}'")
+      Contact.where("#{age_filter} #{op_state} state = '#{state}' #{op_role} role = '#{role}'")
     end
   end
   

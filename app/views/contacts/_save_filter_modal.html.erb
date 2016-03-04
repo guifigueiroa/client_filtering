@@ -7,7 +7,7 @@
         <h4 class="modal-title" id="myModalLabel">Qual nome deseja dar para o filtro?</h4>
       </div>
       <div class="modal-body">
-        <%= text_field_tag("filter[filter_name]", "" ,class: 'form-control', placeholder: "Novo filtro") %>
+        <%= f.text_field :filter_name, class: 'form-control', placeholder: "Novo filtro" %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
