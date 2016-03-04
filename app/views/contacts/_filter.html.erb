@@ -16,31 +16,31 @@
         <%= form_tag contacts_path, method: 'get' do %>
           <h3><%= t :age_range %></h3>
           <%= label_tag :from, t(:from) %>
-          <%= text_field_tag(:from, {} ,type: :number, min: 0, max: 114, class: "form-control") %><br />
+          <%= text_field_tag("contact[from]", {} ,type: :number, min: 0, max: 114, class: "form-control") %><br />
           <%= label_tag :to, t(:to) %>
-          <%= text_field_tag(:to, {} ,type: :number, min: 1, max: 115, class: "form-control") %>
+          <%= text_field_tag("contact[to]", {} ,type: :number, min: 1, max: 115, class: "form-control") %>
           
           <h3><%= t :state, scope: [:activerecord, :attributes, :contact ] %></h3>
           <div class="btn-group" data-toggle="buttons">
             <%= label_tag(:and_label, "E", class: 'btn btn-primary') do %>
-            <%= radio_button_tag("op_state", "AND") %>E
+            <%= radio_button_tag("contact[op_state]", "AND") %>E
             <% end %>
             <%= label_tag(:or_lable, "OU", class: 'btn btn-primary') do %>
-            <%= radio_button_tag("op_state", "OR") %>OU
+            <%= radio_button_tag("contact[op_state]", "OR") %>OU
             <% end %>
           </div><br /><br />
-          <%=select_tag "list_state", content_tag(:option,"")+options_from_collection_for_select(@states, "state_id", "state"), class: 'form-control' %>
+          <%=select_tag "contact[state]", content_tag(:option,"")+options_from_collection_for_select(@states, "state_id", "state"), class: 'form-control' %>
         
           <h3><%= t :role, scope: [:activerecord, :attributes, :contact ] %></h3>
           <div class="btn-group" data-toggle="buttons">
             <%= label_tag(:and_label, "E", class: 'btn btn-primary') do %>
-            <%= radio_button_tag("op_role", "AND") %>E
+            <%= radio_button_tag("contact[op_role]", "AND") %>E
             <% end %>
             <%= label_tag(:or_lable, "OU", class: 'btn btn-primary') do %>
-            <%= radio_button_tag("op_role", "OR") %>OU
+            <%= radio_button_tag("contact[op_role]", "OR") %>OU
             <% end %>
           </div><br /><br />
-          <%=select_tag "list_role", content_tag(:option,"")+options_from_collection_for_select(@roles, "role", "role"), class: 'form-control' %><br />
+          <%=select_tag "contact[role]", content_tag(:option,"")+options_from_collection_for_select(@roles, "role", "role"), class: 'form-control' %><br />
         
           <%= submit_tag t(:apply), class: "btn btn-default" %>
           

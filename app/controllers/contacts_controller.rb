@@ -16,7 +16,12 @@ class ContactsController < ApplicationController
   end
 
   def index
-    @contacts = Contact.all.order(:name)
+    if params.has_key?(:contact)
+      @contacts = Contact.search(contact_params)
+    else
+      @contacts = Contact.all.order(:name)
+    end
+    
     @states = State.all
     @roles = Contact.select(:role).uniq.order(:role)
   end
@@ -24,6 +29,6 @@ class ContactsController < ApplicationController
   private
   
   def contact_params
-    params.require(:contact).permit(:name, :email, :age, :state, :role)
+    params.require(:contact).permit(:name, :email, :age, :state, :role, :to, :from, :op_state, :op_role)
   end
 end
