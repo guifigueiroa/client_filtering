@@ -12,19 +12,22 @@ class Contact < ActiveRecord::Base
   def self.search(params)
     op_state = default_if_empty(params[:op_state], "AND")
     op_role = default_if_empty(params[:op_role], "AND")
-    from = default_if_empty(params[:from], 0)
-    to = default_if_empty(params[:to], 115)
+    from = default_if_empty(params[:age_from], 0)
+    to = default_if_empty(params[:age_to], 115)
+    age_filter = "age BETWEEN #{from} AND #{to}"
     
-    if params[:state].empty?
-      Contact.where(["age BETWEEN #{from} AND #{to} #{op_role} role = :role", params])
+    if params[:state].empty? && params[:role].empty?
+      Contact.where(age_filter)
+    elsif params[:state].empty?
+      Contact.where(["#{age_filter} #{op_role} role = :role", params])
     elsif params[:role].empty?
-      Contact.where(["age BETWEEN #{from} AND #{to} #{op_state} state = :state", params])
+      Contact.where(["#{age_filter} #{op_state} state = :state", params])
     else
-      Contact.where(["age BETWEEN #{from} AND #{to} #{op_state} state = :state #{op_role} role = :role", params])
+      Contact.where(["#{age_filter} #{op_state} state = :state #{op_role} role = :role", params])
     end
   end
 
   def self.default_if_empty(param, default)
-    if param.empty?; default else param end
+    if param.nil? || param.empty?; default else param end
   end
 end

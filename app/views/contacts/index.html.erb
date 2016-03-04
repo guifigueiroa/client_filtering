@@ -4,17 +4,26 @@
     <%= render 'contacts/filter' %>
   </div>
   <div class="col-xs-12 col-sm-9">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th><%= t :name, scope: [:activerecord, :attributes, :contact ]%></th>
-        <th><%= t :email, scope: [:activerecord, :attributes, :contact ] %></th>
-        <th><%= t :age, scope: [:activerecord, :attributes, :contact ] %></th>
-        <th><%= t :state, scope: [:activerecord, :attributes, :contact ] %></th>
-        <th><%= t :role, scope: [:activerecord, :attributes, :contact ] %></th>
-      </tr>
-    </thead>
-    <%= render @contacts %>
-  </table>
+    
+    <div class="page-header">
+    <%= form_tag contacts_path, method: 'get', class: 'form-inline' do %>
+      <%= label_tag :saved_filters, t(:saved_filters) %>
+      <%= select_tag "selected_filter", content_tag(:option,t(:select))+options_from_collection_for_select(@filters, "id", "filter_name"), class: 'form-control' %>
+      <%= submit_tag t(:apply), class: "btn btn-default" %>
+    <% end %>
+    </div>
+    
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t :name, scope: [:activerecord, :attributes, :contact ]%></th>
+          <th><%= t :email, scope: [:activerecord, :attributes, :contact ] %></th>
+          <th><%= t :age, scope: [:activerecord, :attributes, :contact ] %></th>
+          <th><%= t :state, scope: [:activerecord, :attributes, :contact ] %></th>
+          <th><%= t :role, scope: [:activerecord, :attributes, :contact ] %></th>
+        </tr>
+      </thead>
+      <%= render @contacts %>
+    </table>
   </div>
 </div>
