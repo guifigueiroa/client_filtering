@@ -3,10 +3,12 @@
   <%= render 'contacts/number_filter' %>
   
   <%= render partial: 'contacts/text_filter', locals: { list: @states,
+                                                        field_id: 'state_id',
                                                         field: 'state',
                                                         name: t(:state, scope: [ :activerecord, :attributes, :contact]) } %>
   
   <%= render partial: 'contacts/text_filter', locals: { list: @roles,
+                                                        field_id: 'role',
                                                         field: 'role',
                                                         name: t(:role, scope: [ :activerecord, :attributes, :contact]) } %>
 </div>

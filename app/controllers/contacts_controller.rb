@@ -18,7 +18,7 @@ class ContactsController < ApplicationController
   def index
     @contacts = Contact.all
     @states = State.all
-    @roles = Contact.select(:role).uniq
+    @roles = Contact.select(:role).uniq.order(:role)
   end
   
   private
