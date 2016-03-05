@@ -8,6 +8,8 @@ pt-BR:
   age_range: "Faixa de idade"
   from: "De"
   to: "Até"
+  and: "E"
+  or: "OU"
   apply: "Aplicar"
   save_filter: "Salvar filtro"
   saved_filters: "Filtros salvos"

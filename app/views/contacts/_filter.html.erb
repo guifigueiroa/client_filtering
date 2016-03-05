@@ -21,10 +21,10 @@
           <h3><%= t :state, scope: [:activerecord, :attributes, :contact ] %></h3>
           <div class="btn-group" data-toggle="buttons">
             <%= f.label :and_label, "E", class: 'btn btn-primary' + (!params[:filter].nil? && params[:filter][:op_state] == "AND" ? ' active' : '') do %>
-              <%= f.radio_button :op_state, "AND" %>E
+              <%= f.radio_button :op_state, "AND", checked: !!(!params[:filter].nil? && params[:filter][:op_state] == "AND") %><%= t :and %>
             <% end %>
             <%= f.label :or_lable, "OU", class: 'btn btn-primary' + (!params[:filter].nil? && params[:filter][:op_state] == "OR" ? ' active' : '') do %>
-              <%= f.radio_button :op_state, "OR" %>OU
+              <%= f.radio_button :op_state, "OR", checked: !!(!params[:filter].nil? && params[:filter][:op_state] == "OR") %><%= t :or %>
             <% end %>
           </div><br /><br />
           <%= f.select :state, content_tag(:option,"")+options_from_collection_for_select(@states, "state_id", "state", (params[:filter].nil? ? "" : params[:filter][:state])), {}, { class: 'form-control' } %>
@@ -32,10 +32,10 @@
           <h3><%= t :role, scope: [:activerecord, :attributes, :contact ] %></h3>
           <div class="btn-group" data-toggle="buttons">
             <%= f.label :and_label, "E", class: 'btn btn-primary' + (!params[:filter].nil? && params[:filter][:op_role] == "AND" ? ' active' : '') do %>
-              <%= f.radio_button :op_role, "AND", checked: true %>E
+              <%= f.radio_button :op_role, "AND", checked: !!(!params[:filter].nil? && params[:filter][:op_role] == "AND") %><%= t :and %>
             <% end %>
             <%= f.label :or_lable, "OU", class: 'btn btn-primary' + (!params[:filter].nil? && params[:filter][:op_role] == "OR" ? ' active' : '') do %>
-              <%= f.radio_button :op_role, "OR" %>OU
+              <%= f.radio_button :op_role, "OR", checked: !!(!params[:filter].nil? && params[:filter][:op_role] == "OR") %><%= t :or %>
             <% end %>
           </div><br /><br />
           <%= f.select :role, content_tag(:option,"")+options_from_collection_for_select(@roles, "role", "role", (params[:filter].nil? ? "" : params[:filter][:role])), {}, { class: 'form-control' } %><br />
