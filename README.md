@@ -2,6 +2,15 @@
 
 Application for costumer segmentation, filtering the data using pre-defined criteria.
 
+## TODO
+
+* Add edit and delete contacts button
+* Use Solr or ElasticSearch to improve the searches
+* Visualize content of created filters
+* Use multiple filters for one attribute (e.g. Contacts who live in SP or SC)
+* Add login so that contact info isn't public
+
+
 ## How to run the application locally
 
 Make sure Ruby and Rails are installed on your system. On the command line write and run commands below:
