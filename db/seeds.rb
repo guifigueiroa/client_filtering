@@ -6,6 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+states = ['GO', 'MT', 'MS', 'DF', 'AM', 'AC', 'RO', 'RR', 'AP', 'TO', 'PA', 'MA', 'PI', 'CE', 
+  'RN', 'PB', 'PE', 'SE', 'AL', 'BA', 'SP', 'MG', 'RJ', 'ES', 'PR', 'SC', 'RS']
+
+
 State.create([{ state_id: "AC", state: "Acre" },
               { state_id: "AL", state: "Alagoas" },
               { state_id: "AP", state: "Amapá" },
@@ -34,3 +38,16 @@ State.create([{ state_id: "AC", state: "Acre" },
               { state_id: "SE", state: "Sergipe" },
               { state_id: "TO", state: "Tocantins" },
               ])
+
+99.times do |n|
+  name  = Faker::Name.name
+  email = Faker::Internet.email
+  age = Random.rand(10...99)
+  state = states[Random.rand(0..26)]
+  role = Faker::Company.profession
+  Contact.create!(name:  name,
+               email: email,
+               age: age,
+               state: state,
+               role: role )
+end

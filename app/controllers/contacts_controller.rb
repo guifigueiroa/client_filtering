@@ -15,19 +15,22 @@ class ContactsController < ApplicationController
     end
   end
 
-  def index  
+  def index
+    @contacts_page = Contact.paginate(page: params[:page], per_page: 10)
+    
     if params.has_key?(:filter)
       if save_filter_params == t(:save_filter)
         redirect_to new_filter_path params
       else
-        @contacts = Contact.search(filter_params)
+        @contacts = @contacts_page.search(filter_params)
       end
     elsif params.has_key?(:selected_filter) && load_filter_params != t(:select)
-      @contacts = Contact.search_by_filter(load_filter_params)
+      @contacts = @contacts_page.search_by_filter(load_filter_params)
     else
-      @contacts = Contact.all.order(:name)
+      @contacts = @contacts_page.all.order(:name)
     end
     
+
     @filter = Filter.new
     @states = State.all
     @roles = Contact.select(:role).uniq.order(:role)

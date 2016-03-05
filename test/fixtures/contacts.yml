@@ -13,3 +13,13 @@ two:
   age: 25
   state: SC
   role: Data Scientist
+  
+#Used for pagination test
+<% 30.times do |n| %>
+contact_<%= n %>:
+  name:  <%= "Name #{n}" %>
+  name:  <%= "email#{n}@email.com" %>
+  age: <%= n %>
+  state: SC
+  role: Profession
+<% end %>

@@ -23,7 +23,9 @@
           <th><%= t :role, scope: [:activerecord, :attributes, :contact ] %></th>
         </tr>
       </thead>
+      
       <%= render @contacts %>
     </table>
+    <%= will_paginate %>
   </div>
 </div>
