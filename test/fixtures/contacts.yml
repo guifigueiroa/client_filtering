@@ -3,13 +3,13 @@
 one:
   name: Guilherme Figueiroa
   email: guilherme@gmail.com
-  age: 1
-  state: Sao Paulo
+  age: 20
+  state: SP
   role: Developer
 
 two:
   name: Barbara
   email: barbara@gmail.com
-  age: 1
-  state: Santa Catarina
+  age: 25
+  state: SC
   role: Data Scientist

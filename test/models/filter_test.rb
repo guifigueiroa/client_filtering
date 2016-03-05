@@ -7,7 +7,7 @@ class FilterTest < ActiveSupport::TestCase
   end
   
   test "name should not be empty" do
-    @filter.name = " "*5
+    @filter.filter_name = " "*5
     assert_not @filter.valid?
   end
 end

@@ -5,9 +5,5 @@ class FiltersControllerTest < ActionController::TestCase
     @filter = filters(:one)
   end
   
-  test "should get new" do
-    get :new, contact: @filter.attributes
-    assert_response :success
-  end
 
 end

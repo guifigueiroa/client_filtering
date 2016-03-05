@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: Filtro1
-  age_to: 1
-  age_from: 2
+  filter_name: Filtro1
+  age_to: 19
+  age_from: 21
   op_state: AND
-  state: MyString
+  state: SP
   op_role: AND
-  role: MyString
+  role: Developer
 
 two:
-  name: Filtro2
-  age_to: 1
-  age_from: 2
+  filter_name: Filtro2
+  age_to: 10
+  age_from: 30
   op_state: OR
-  state: MyString
+  state: SC
   op_role: OR
-  role: MyString
+  role: Data Scientist
